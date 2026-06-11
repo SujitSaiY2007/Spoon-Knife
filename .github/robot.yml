@@ -1,0 +1,23 @@
+name: My First Automation Robot
+
+# 1. The Trigger: When should the robot wake up?
+on: [push]
+
+# 2. The Work: What should the robot do?
+jobs:
+  run-tests:
+    # We are renting a temporary Linux server from GitHub
+    runs-on: ubuntu-latest 
+
+    # 3. The Steps: What terminal commands should it run?
+    steps:
+      - name: Step 1 - Download my code onto the server
+        uses: actions/checkout@v4
+
+      - name: Step 2 - Print a success message
+        run: echo "Hello World! The repository is secure and the robot is awake!"
+
+      - name: Step 3 - Check the server environment
+        run: |
+          echo "Currently running inside:"
+          ls -la
